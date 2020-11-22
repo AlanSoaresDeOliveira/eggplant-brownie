@@ -89,8 +89,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let felicidadeDaRefeicao = felicidadeTextField?.text, let felicidade = Int(felicidadeDaRefeicao)  else { return }
         
         let refeicao = Refeicao(nome: nomeDaRefeicao, felicidade: felicidade, itens: itensSelecionados)
-                
-        print("comi \(refeicao.nome) e fiquei com felicidade: \(refeicao.felicidade)")
         
         delegate?.adicionar(refeicao)
         navigationController?.popViewController(animated: true)
