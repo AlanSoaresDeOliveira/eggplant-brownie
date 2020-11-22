@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var nomeTextField: UITextField?
     @IBOutlet var felicidadeTextField: UITextField?
-    @IBOutlet weak var itensTableView: UITableView!
+    @IBOutlet weak var itensTableView: UITableView?
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -32,7 +32,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         itens.append(item)
-        itensTableView.reloadData()
+        if let tabelView = itensTableView {
+            tabelView.reloadData()
+        } else {
+            let alerta = UIAlertController(title: "Desculpe", message: "Não foi possível atualizar a tabela", preferredStyle: .alert)
+            let botao = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            
+            alerta.addAction(botao)
+            present(alerta, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Atributos
