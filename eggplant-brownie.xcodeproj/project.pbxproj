@@ -19,6 +19,7 @@
 		07D970DA2566F43F00820A87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D970D92566F43F00820A87 /* Assets.xcassets */; };
 		07D970DD2566F43F00820A87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07D970DB2566F43F00820A87 /* LaunchScreen.storyboard */; };
 		07F9B4C5256BEC8D00038A59 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F9B4C4256BEC8D00038A59 /* Alerta.swift */; };
+		07F9B4C8256C03D000038A59 /* RemoveRefeicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F9B4C7256C03D000038A59 /* RemoveRefeicaoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		07D970DE2566F43F00820A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D970E52566F6C900820A87 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = "../../../../Library/Autosave Information/MyPlayground.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		07F9B4C4256BEC8D00038A59 /* Alerta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		07F9B4C7256C03D000038A59 /* RemoveRefeicaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveRefeicaoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				07D970D42566F43E00820A87 /* ViewController.swift */,
 				07A3609725673E020043F8FA /* RefeicoesTableViewController.swift */,
 				0705334825698446007E93F7 /* AdicionarItensViewController.swift */,
+				07F9B4C7256C03D000038A59 /* RemoveRefeicaoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				07F9B4C5256BEC8D00038A59 /* Alerta.swift in Sources */,
 				07B04E9A25673346007C9D4D /* Item.swift in Sources */,
 				07D970D52566F43E00820A87 /* ViewController.swift in Sources */,
+				07F9B4C8256C03D000038A59 /* RemoveRefeicaoViewController.swift in Sources */,
 				0705334A25698446007E93F7 /* AdicionarItensViewController.swift in Sources */,
 				07D970D12566F43E00820A87 /* AppDelegate.swift in Sources */,
 				07A3609825673E020043F8FA /* RefeicoesTableViewController.swift in Sources */,

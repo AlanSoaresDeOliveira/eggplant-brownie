@@ -35,24 +35,11 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
             guard let indexPath = tableView.indexPath(for: celula) else { return }
             let refeicao = refeicoes[indexPath.row]            
             
-            
-            let alert = UIAlertController(title: refeicao.nome, message: refeicao.detalhes(), preferredStyle: .alert)
-                        
-            let botaoCancelar = UIAlertAction(title: "cancelar", style: .cancel, handler: nil)
-            
-            let botaoRemover = UIAlertAction(title: "remover", style: .destructive, handler: removeRefeicao)
-            
-            alert.addAction(botaoCancelar)
-            alert.addAction(botaoRemover)
-            
-            present(alert, animated: true, completion: nil)
-            
+            RemoveRefeicaoViewController(controller: self).exibe(refeicao, handler: { alert in
+                self.refeicoes.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            })
         }
-        
-    }
-    
-    func removeRefeicao(alerta: UIAlertAction) {
-        print("Remover refeicão")
     }
     
     func adicionar(_ refeicao: Refeicao) {
