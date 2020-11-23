@@ -40,12 +40,19 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
                         
             let botaoCancelar = UIAlertAction(title: "cancelar", style: .cancel, handler: nil)
             
+            let botaoRemover = UIAlertAction(title: "remover", style: .destructive, handler: removeRefeicao)
+            
             alert.addAction(botaoCancelar)
+            alert.addAction(botaoRemover)
             
             present(alert, animated: true, completion: nil)
             
         }
         
+    }
+    
+    func removeRefeicao(alerta: UIAlertAction) {
+        print("Remover refeicão")
     }
     
     func adicionar(_ refeicao: Refeicao) {
