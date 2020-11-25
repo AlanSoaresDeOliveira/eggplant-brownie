@@ -19,10 +19,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var felicidadeTextField: UITextField?
     @IBOutlet weak var itensTableView: UITableView?
     
+    // MARK: - Atributos
+    
+    var delegate: AdicionaRefeicaoDelegate?
+    var itens: [Item] = []
+    var itensSelecionados: [Item] = []
+    
     // MARK: - View life cycle
     override func viewDidLoad() {
         let botaoAdicionarItem = UIBarButtonItem(title: "adicionar", style: .plain, target: self, action: #selector(adicionarItens))
         navigationItem.rightBarButtonItem = botaoAdicionarItem
+        recuperaItens()
+    }
+    
+    func recuperaItens() {
+        itens = ItemDAO().recupera()
     }
     
     @objc func adicionarItens() {
@@ -32,26 +43,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         itens.append(item)
+        ItemDAO().save(item)
         if let tabelView = itensTableView {
             tabelView.reloadData()
         } else {
             Alerta.init(controller: self).exibe(mensagem: "Não foi possível atualizar a tabela")
         }
     }
-    
-    func exibirAlerta() {
-        
-    }
-    
-    // MARK: - Atributos
-    
-    var delegate: AdicionaRefeicaoDelegate?
-    var itens: [Item] = [Item(name: "Molho de Tomate", calorias: 5.5),
-                         Item(name: "Queijo", calorias: 10.5),
-                         Item(name: "Pimenta", calorias: 11.1),
-                         Item(name: "Manjericão", calorias: 1)]
-    var itensSelecionados: [Item] = []
-    
     
     // MARK: - UITableViewDataSource
     
@@ -99,10 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             Alerta.init(controller: self).exibe(mensagem: "Erro ao ler dados do formuláro.")
         }
-        
-        
     }
-
     
     func recuperarRefeicaoDoFormulario() -> Refeicao? {
         guard let nomeDaRefeicao = nomeTextField?.text else { return nil }

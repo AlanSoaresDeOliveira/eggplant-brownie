@@ -9,9 +9,11 @@ import UIKit
 
 class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDelegate {
     
-    var refeicoes = [Refeicao(nome: "Macarrão", felicidade: 4),
-                     Refeicao(nome: "Lasanha", felicidade: 3),
-                     Refeicao(nome: "Comida Japonesa", felicidade: 5)]
+    var refeicoes: [Refeicao] = []
+    
+    override func viewDidLoad() {
+        refeicoes = RefeicaoDAO().recuperar()
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return refeicoes.count
@@ -45,6 +47,9 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
     func adicionar(_ refeicao: Refeicao) {
         refeicoes.append(refeicao)
         tableView.reloadData()
+        
+        RefeicaoDAO().save(refeicoes)
+          
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,8 +59,5 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
                 viewController.delegate = self
             }
         }
-        
     }
-    
-    
 }
