@@ -39,6 +39,8 @@ class RefeicoesTableViewController: UITableViewController, AdicionaRefeicaoDeleg
             
             RemoveRefeicaoViewController(controller: self).exibe(refeicao, handler: { alert in
                 self.refeicoes.remove(at: indexPath.row)
+                RefeicaoDAO().save(self.refeicoes)
+
                 self.tableView.reloadData()
             })
         }
